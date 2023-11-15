@@ -30,9 +30,10 @@ const assignrolebyuid = async (uid,role)=>{
 
 
 app.post('/setclaim', async (req, res)=>{
-  const {email,role} = req.body
-  const uid = await UserUID(email)
+ 
 try{
+   const {email,role} = req.body
+  const uid = await UserUID(email)
    await assignrolebyuid(uid,role);
     
     res.status(200).json({message:'done'});
