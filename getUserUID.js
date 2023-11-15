@@ -10,3 +10,4 @@ const admin = require('firebase-admin')
     console.log('Error fetching user data:', error);
   });
 }
+module.exports={UserUID}

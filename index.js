@@ -1,5 +1,6 @@
 // import express from 'express';
 const express = require('express')
+const bodyParser = require('body-parser');
 const app = express();
 var admin = require("firebase-admin");
 // admin.auth().getu
@@ -27,11 +28,12 @@ const assignrolebyuid = async (uid,role)=>{
   }
 }
 
-
+app.use(bodyParser.json());
 
 app.post('/setclaim', async (req, res)=>{
  
 try{
+  console.log(req.body)
    const {email,role} = req.body
   const uid = await UserUID(email)
    await assignrolebyuid(uid,role);
